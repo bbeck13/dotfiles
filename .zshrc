@@ -50,7 +50,7 @@ PROMPT="%{$fg_bold[green]%}[%{$reset_color%}%{$fg[white]%}%1d%{$reset_color%}%{$
 
 
 #if x is running attach tmux to all terminals
-if [[ -n $(ps -e | grep X) ]]; then
+if [[ -n $(ps -e | grep Xorg) ]]; then
    if [[ ! $TERM =~ screen ]]; then
       exec tmux
    fi
@@ -89,7 +89,7 @@ fi
 export EDITOR="vim"
 
 # Setup zsh-autosuggestions
-source /home/badmin/.zsh-autosuggestions/autosuggestions.zsh
+source ~/.zsh-autosuggestions/autosuggestions.zsh
 
 # Enable autosuggestions automatically
 zle-line-init() {

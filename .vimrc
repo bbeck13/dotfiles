@@ -13,6 +13,7 @@ Bundle 'tomasr/molokai'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/restore_view.vim'
+"Bundle 'edkolev/tmuxline.vim'
 "Bundle 'bling/vim-bufferline'
 
 filetype plugin indent on
@@ -65,10 +66,11 @@ set clipboard=unnamed
 set clipboard=unnamedplus
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
+colorscheme solarized
+"colorscheme molokai
 highlight LineNr ctermfg=grey ctermbg=darkgrey
 highlight LineNr ctermfg=grey
-"set background=dark
-"colorscheme solarized
+"set background=transparent
 
 "remapings
 nnoremap <space> :
