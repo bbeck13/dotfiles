@@ -64,8 +64,8 @@ fi
 #   xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -name Yakuake;
 #fi
 
-typeset -A key
 #fix home and end keys
+typeset -A key
 key[Home]=${terminfo[khome]}
 
 key[End]=${terminfo[kend]}
@@ -88,8 +88,10 @@ fi
 
 export EDITOR="vim"
 
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Setup zsh-autosuggestions
-source ~/.zsh-autosuggestions/autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
 
 # Enable autosuggestions automatically
 zle-line-init() {
