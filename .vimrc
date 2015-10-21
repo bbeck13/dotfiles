@@ -68,8 +68,8 @@ set clipboard=unnamed
 set clipboard=unnamedplus
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
-colorscheme solarized
-"colorscheme molokai
+"colorscheme solarized
+colorscheme molokai
 highlight LineNr ctermfg=grey ctermbg=darkgrey
 highlight LineNr ctermfg=grey
 "set background=transparent
