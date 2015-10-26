@@ -89,7 +89,7 @@ nnoremap <S-w> :w<cr>
 vnoremap <Space> zf
 nnoremap <CR> za
 
-"remember cursor position
+"Functions
 if has("autocmd")
    augroup redhat
    autocmd!
