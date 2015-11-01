@@ -1,6 +1,13 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+#if x is running attach tmux to all terminals
+if [[ -n $(ps -e | grep Xorg) ]]; then
+   if [[ ! $TERM =~ screen ]]; then
+      exec tmux
+   fi
+fi
+
 #display fortune on new shell
 fortune -a
 
@@ -46,13 +53,6 @@ SAVEHIST=1000
 #PROMPT="%{$fg_bold[green]%}[%{$reset_color%}%{$fg[white]%}%1d%{$reset_color%}%{$fg_bold[green]%}]%{$reset_color%}%{$fg_bold[red]%}> "
 #PROMPT="%{$fg_bold[green]%}[%{$reset_color%}%{$fg[white]%}%1d%{$reset_color%}%{$fg_bold[green]%}]%{$reset_color%}%{$fg_bold[red]%}> "
 #PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%#"
-
-#if x is running attach tmux to all terminals
-if [[ -n $(ps -e | grep Xorg) ]]; then
-   if [[ ! $TERM =~ screen ]]; then
-      exec tmux
-   fi
-fi
 
 #blur transparent konsole / yakuake windows needs kde
 #if [ `qdbus | grep konsole` ]; then
@@ -144,7 +144,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/bin:/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:.:.:."
+export PATH="/bin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:."
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
