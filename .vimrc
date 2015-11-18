@@ -82,7 +82,8 @@ nnoremap j gj
 nnoremap k gk
 nnoremap nn :bn<cr>
 nnoremap np :bp<cr>
-nnoremap nb :badd .<cr>
+nnoremap nb :e .<cr>
+nnoremap <C-n> :NERDTreeToggle<cr>
 nnoremap bd :bd<CR>
 nnoremap <C-c> :x<CR>
 nnoremap <S-w> :w<cr>
