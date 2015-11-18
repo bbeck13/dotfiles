@@ -1,3 +1,14 @@
+#README\/
+#Note for everything to work the following must be installed
+#oh-myzsh must be installed at ~/.oh-my-zsh
+#see https://github.com/robbyrussell/oh-my-zsh
+#
+#zsh syntax highlighting at ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#see https://github.com/zsh-users/zsh-syntax-highlighting
+#
+#zsh auto suggestions at ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
+#see https://github.com/tarruda/zsh-autosuggestions
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
