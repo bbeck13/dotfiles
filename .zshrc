@@ -62,28 +62,6 @@ SAVEHIST=1000
 #   xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -name Yakuake;
 #fi
 
-#fix home and end keys
-typeset -A key
-key[Home]=${terminfo[khome]}
-
-key[End]=${terminfo[kend]}
-key[Delete]=${terminfo[kdelete]}
-bindkey "\e[3~" delete-char
-
-[[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"     beginning-of-line
-[[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"      end-of-line
-[[ -n "${key[Delete]}"      ]]  && bindkey  "${key[Delete]}" delete
-if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-   function zle-line-init () {
-      printf '%s' "${terminfo[smkx]}"
-   }
-   function zle-line-finish () {
-      printf '%s' "${terminfo[rmkx]}"
-   }
-   zle -N zle-line-init
-   zle -N zle-line-finish
-fi
-
 export EDITOR="vim"
 
 # Path to your oh-my-zsh installation.
@@ -176,6 +154,28 @@ source $ZSH/oh-my-zsh.sh
 
 #vi mode
 bindkey -v
+
+#fix home and end keys
+typeset -A key
+key[Home]=${terminfo[khome]}
+
+key[End]=${terminfo[kend]}
+key[Delete]=${terminfo[kdelete]}
+bindkey "\e[3~" delete-char
+
+[[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"     beginning-of-line
+[[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"      end-of-line
+[[ -n "${key[Delete]}"      ]]  && bindkey  "${key[Delete]}" delete
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+   function zle-line-init () {
+      printf '%s' "${terminfo[smkx]}"
+   }
+   function zle-line-finish () {
+      printf '%s' "${terminfo[rmkx]}"
+   }
+   zle -N zle-line-init
+   zle -N zle-line-finish
+fi
 
 # Setup zsh-autosuggestions
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
