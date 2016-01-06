@@ -41,7 +41,7 @@ alias boot='sudo /boot/update.sh'
 alias update2='sudo gummiboot --path=/boot/efi update'
 
 #make it like fish
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 autoload predict-on
 predict-on
 autoload -U compinit
