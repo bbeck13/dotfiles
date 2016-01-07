@@ -2,6 +2,7 @@ runtime! archlinux.vim
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+set rtp+=~/.vim/bundle/Vundle.vim
 "Bundles / plugins
 call vundle#rc()
 
