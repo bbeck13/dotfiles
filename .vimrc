@@ -15,6 +15,7 @@ Bundle 'davidhalter/jedi-vim'
 Bundle 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/restore_view.vim'
 Plugin 'ervandew/supertab'
+Plugin 'scrooloose/nerdtree'
 "Plugin 'Valloric/YouCompleteMe' could be good but supertab does well enough
 "Bundle 'edkolev/tmuxline.vim'
 "Bundle 'bling/vim-bufferline'
