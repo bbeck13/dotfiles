@@ -72,7 +72,7 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 "colorscheme solarized
 colorscheme molokai
-highlight LineNr ctermfg=grey ctermbg=darkgrey
+highlight LineNr ctermfg=white ctermbg=darkgrey
 highlight LineNr ctermfg=grey
 hi Visual term=reverse cterm=reverse guibg=Grey
 hi Search term=reverse cterm=reverse guibg=Grey
