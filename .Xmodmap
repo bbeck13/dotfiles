@@ -1,5 +1,5 @@
 !inverse scrolling good for trackpads not good for mice
-pointer = 1 2 3 5 4 7 6 8 9 10 11 12
+!pointer = 1 2 3 5 4 7 6 8 9 10 11 12
 !Key \/
 !keycode ## = Keypress Shifted_Keypress ModeSwitch_KeyPress ModeSwitch_Shifted_Keypress
 keycode   8 =
