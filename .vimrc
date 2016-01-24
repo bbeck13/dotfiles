@@ -16,6 +16,7 @@ Bundle 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/restore_view.vim'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
+Plugin 'guns/vim-sexp'
 "Plugin 'Valloric/YouCompleteMe' could be good but supertab does well enough
 "Bundle 'edkolev/tmuxline.vim'
 "Bundle 'bling/vim-bufferline'
@@ -91,6 +92,7 @@ nnoremap <C-c> :x<CR>
 nnoremap <S-w> :w<cr>
 vnoremap <Space> zf
 nnoremap <CR> za
+inoremap <S-Tab> <space><space><space>
 
 "Functions
 if has("autocmd")
@@ -103,3 +105,9 @@ if has("autocmd")
    \ endif
    autocmd BufNewFile,BufReadPre /media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
 endif
+
+"if has("autocmd")
+"   au BufReadPost *.rkt,*.rktl set filetype=racket
+"   au filetype racket set lisp
+"   au filetype racket set autoindent
+"endif
