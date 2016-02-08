@@ -45,9 +45,14 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:molokai_original = 1
 let g:rehash256 = 1
+"if (system("ps -aux | grep Xorg"))
+"   let g:airline_powerline_fonts = 1
+"else
+"   let g:airline_powerline_fonts = 0
+"endif
 "let NERDTreeShowHidden = 1
 
-"airline shit
+"airline
 set laststatus=2
 set history=50
 
@@ -67,14 +72,27 @@ setlocal spell spelllang=en_us
 set ai
 set si
 set undofile
+set lazyredraw
+set formatoptions=tcrqn
+set wrap linebreak nolist
+set showbreak=+++
+"set colorcolumn=80
 set clipboard=unnamed
 set clipboard=unnamedplus
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
+"set background=dark
 "colorscheme solarized
+"let g:solarized_termcolors = 256
+"let g:solarized_termtrans = 0
+"let g:solarized_degrade = 0
+"let g:solarized_bold  = 1
+"let g:solarized_underline = 1
+"let g:solarized_italic = 1
+"let g:solarized_constast="high"
+"let g:solarized_visibility="high"
 colorscheme molokai
-highlight LineNr ctermfg=white ctermbg=darkgrey
-highlight LineNr ctermfg=grey
+highlight LineNr ctermfg=grey ctermbg=black
 hi Visual term=reverse cterm=reverse guibg=Grey
 hi Search term=reverse cterm=reverse guibg=Grey
 "set background=transparent
@@ -83,6 +101,8 @@ hi Search term=reverse cterm=reverse guibg=Grey
 nnoremap <space> :
 nnoremap j gj
 nnoremap k gk
+nnoremap ns :set nospell<cr>
+nnoremap ss :set spell<cr>
 nnoremap nn :bn<cr>
 nnoremap np :bp<cr>
 nnoremap nb :e .<cr>
@@ -92,7 +112,6 @@ nnoremap <C-c> :x<CR>
 nnoremap <S-w> :w<cr>
 vnoremap <Space> zf
 nnoremap <CR> za
-inoremap <S-Tab> <space><space><space>
 
 "Functions
 if has("autocmd")
@@ -104,6 +123,23 @@ if has("autocmd")
    \   exe "normal! g'\"" |
    \ endif
    autocmd BufNewFile,BufReadPre /media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
+endif
+
+" IMPORTANT: Uncomment one of the following lines to force
+" using 256 colors (or 88 colors) if your terminal supports it,
+" but does not automatically use 256 colors by default.
+set t_Co=256
+"set t_Co=88
+if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
+  \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
+  " Use the guicolorscheme plugin to makes 256-color or 88-color
+  " terminal use GUI colors rather than cterm colors.
+  runtime! plugin/guicolorscheme.vim
+  "GuiColorScheme molokai
+else
+  " For 8-color 16-color terminals or for gvim, just use the
+  " regular :colorscheme command.
+  "colorscheme molokai
 endif
 
 "if has("autocmd")

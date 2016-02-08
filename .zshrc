@@ -15,6 +15,7 @@
 #if x is running attach tmux to all terminals
 if [[ -n $(ps -e | grep Xorg) ]]; then
    if [[ ! $TERM =~ screen ]]; then
+      TERM=xterm-256color
       exec tmux
    fi
 fi
@@ -35,6 +36,7 @@ alias bye='shutdown now'
 alias permissions="stat -c '%a %n' *" #show octal permissions
 alias xfluxs='xflux -z 93401'
 alias temps='sensors | grep -e Core -e Physical'
+alias ncm='ncmpcpp'
 
 #only for personal efi computers
 alias boot='sudo /boot/update.sh'
@@ -72,8 +74,6 @@ SAVEHIST=1000
 #if [ `qdbus | grep yakuake` ]; then
 #   xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -name Yakuake;
 #fi
-
-export EDITOR="vim"
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -166,6 +166,7 @@ source $ZSH/oh-my-zsh.sh
 
 #vi mode
 bindkey -v
+export EDITOR="vim"
 
 #fix home and end keys
 typeset -A key
@@ -207,4 +208,5 @@ bindkey '^T' autosuggest-toggle
 #471 stuff
 export EIGEN3_INCLUDE_DIR=~/.local/lib/eigen-eigen-b30b87236a1b
 export GLFW_DIR=~/.local/lib/glfw-3.1.2
+export CPLUS_INCLUDE_PATH=~/.local/lib/glfw-3.1.2/include:~/.local/lib/glew-1.13.0/include
 export GLEW_DIR=~/.local/lib/glew-1.13.0
