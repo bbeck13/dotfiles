@@ -85,6 +85,7 @@ export ZSH=~/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="Mine"
 ZSH_THEME="fishy"
+#PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 #oh-my-zsh options
 # Uncomment the following line to use case-sensitive completion.
