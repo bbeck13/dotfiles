@@ -16,6 +16,7 @@ Bundle 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/restore_view.vim'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'guns/vim-sexp'
 Plugin 'wlangstroth/vim-racket'
 Plugin 'tpope/vim-surround'
@@ -78,8 +79,7 @@ set undofile
 set lazyredraw
 set formatoptions=tcrqn
 set wrap linebreak nolist
-set showbreak=+++
-"set colorcolumn=80
+set showbreak=->
 set clipboard=unnamed
 set clipboard=unnamedplus
 set grepprg=grep\ -nH\ $*
@@ -112,7 +112,9 @@ nnoremap nb :e .<cr>
 nnoremap <C-n> :NERDTreeToggle<cr>
 nnoremap bd :bd<CR>
 nnoremap <C-c> :x<CR>
-nnoremap <S-w> :w<cr>
+nnoremap \ :w<cr>
+nnoremap <C-]> :set colorcolumn=80<cr>
+nnoremap <C-[> :set colorcolumn=0<cr><cr>
 vnoremap <Space> zf
 nnoremap <CR> za
 nnoremap <C-i> mzgg=G`z

@@ -206,3 +206,20 @@ zle -N zle-line-init
 # zsh-autosuggestions is designed to be unobtrusive)
 bindkey '^T' autosuggest-toggle
 
+#471 stuff
+export EIGEN3_INCLUDE_DIR=~/.local/lib/eigen-eigen-b30b87236a1b
+export GLFW_DIR=~/.local/lib/glfw-3.1.2
+export CPLUS_INCLUDE_PATH=~/.local/lib/glfw-3.1.2/include:~/.local/lib/glew-1.13.0/include
+export GLEW_DIR=~/.local/lib/glew-1.13.0
+
+#show normal flag in prompt normal mode
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[green]%} [% NORMAL]%  %{$reset_color%}"
+    local return_status="%{$fg_bold[red]%}%(?..%?)%{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}${return_status}$(git_prompt_info)$(git_prompt_status)%{$reset_color%} $EPS1"
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
