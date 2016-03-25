@@ -191,17 +191,6 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
    zle -N zle-line-finish
 fi
 
-# Setup zsh-autosuggestions
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
-
-# Enable autosuggestions automatically
-zle-line-init() {
-    zle autosuggest-start
-}
-
-zle -N zle-line-init
-
 # use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
 # zsh-autosuggestions is designed to be unobtrusive)
 bindkey '^T' autosuggest-toggle
@@ -217,8 +206,19 @@ function zle-line-init zle-keymap-select {
     VIM_PROMPT="%{$fg_bold[green]%} [% NORMAL]%  %{$reset_color%}"
     local return_status="%{$fg_bold[red]%}%(?..%?)%{$reset_color%}"
     RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}${return_status}$(git_prompt_info)$(git_prompt_status)%{$reset_color%} $EPS1"
+    zle autosuggest-start
     zle reset-prompt
 }
+
+#zle -N zle-line-init
+
+# Setup zsh-autosuggestions
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
+
+# Enable autosuggestions automatically
+#zle-line-init() {
+#}
 
 zle -N zle-line-init
 zle -N zle-keymap-select
