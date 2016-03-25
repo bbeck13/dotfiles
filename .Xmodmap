@@ -65,7 +65,8 @@ keycode  62 = Shift_R NoSymbol Shift_R
 keycode  63 = KP_Multiply KP_Multiply KP_Multiply KP_Multiply KP_Multiply KP_Multiply XF86ClearGrab
 keycode  64 = Alt_L Meta_L Alt_L Meta_L
 !Switch keyboard modes on shift space
-keycode  65 = space ISO_Next_Group nobreakspace ISO_Prev_Group
+keycode  65 = space space space space
+!this is annoying as hell ISO_Next_Group nobreakspace ISO_Prev_Group
 !TODO: get rid of this here and not at the bottom, for no don't fix what ain't broken
 !      even if it looks a little ugly, hell this whole file looks ugly
 keycode  66 = Caps_Lock NoSymbol Caps_Lock
