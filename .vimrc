@@ -84,21 +84,10 @@ set clipboard=unnamed
 set clipboard=unnamedplus
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
-"set background=dark
-"colorscheme solarized
-"let g:solarized_termcolors = 256
-"let g:solarized_termtrans = 0
-"let g:solarized_degrade = 0
-"let g:solarized_bold  = 1
-"let g:solarized_underline = 1
-"let g:solarized_italic = 1
-"let g:solarized_constast="high"
-"let g:solarized_visibility="high"
 colorscheme molokai
 highlight LineNr ctermfg=grey ctermbg=black
 hi Visual term=reverse cterm=reverse guibg=Grey
 hi Search term=reverse cterm=reverse guibg=Grey
-"set background=transparent
 
 "remapings
 nnoremap <space> :
@@ -106,9 +95,9 @@ nnoremap j gj
 nnoremap k gk
 nnoremap ns :set nospell<cr>
 nnoremap ss :set spell<cr>
-nnoremap nn :bn<cr>
-nnoremap np :bp<cr>
-nnoremap nb :e .<cr>
+nnoremap > :bn<cr>
+nnoremap < :bp<cr>
+nnoremap e :e .<cr>
 nnoremap <C-n> :NERDTreeToggle<cr>
 nnoremap bd :bd<CR>
 nnoremap <C-c> :x<CR>
