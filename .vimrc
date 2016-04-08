@@ -63,6 +63,7 @@ set history=50
 "general stuff
 "set relativenumber
 set viewoptions=cursor,folds,slash,unix
+set tw=80
 let g:skipview_files = ['*\.vim']
 set number
 syntax enable
