@@ -2,12 +2,6 @@
 #Note for everything to work the following must be installed
 #oh-myzsh must be installed at ~/.oh-my-zsh
 #see https://github.com/robbyrussell/oh-my-zsh
-#
-#zsh syntax highlighting at ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#see https://github.com/zsh-users/zsh-syntax-highlighting
-#
-#zsh auto suggestions at ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
-#see https://github.com/tarruda/zsh-autosuggestions
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -43,7 +37,7 @@ alias boot='sudo /boot/update.sh'
 alias update2='sudo gummiboot --path=/boot/efi update'
 
 #make it like fish
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 autoload predict-on
 predict-on
 autoload -U compinit
@@ -131,7 +125,7 @@ export UPDATE_ZSH_DAYS=13
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
 
@@ -206,19 +200,8 @@ function zle-line-init zle-keymap-select {
     VIM_PROMPT="%{$fg_bold[green]%} [% NORMAL]%  %{$reset_color%}"
     local return_status="%{$fg_bold[red]%}%(?..%?)%{$reset_color%}"
     RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}${return_status}$(git_prompt_info)$(git_prompt_status)%{$reset_color%} $EPS1"
-    zle autosuggest-start
     zle reset-prompt
 }
-
-#zle -N zle-line-init
-
-# Setup zsh-autosuggestions
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
-
-# Enable autosuggestions automatically
-#zle-line-init() {
-#}
 
 zle -N zle-line-init
 zle -N zle-keymap-select
