@@ -20,10 +20,15 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'guns/vim-sexp'
 Plugin 'wlangstroth/vim-racket'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tikhomirov/vim-glsl'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'jeetsukumaran/vim-buffergator'
+"Plugin 'bling/vim-bufferline'
 "Plugin 'Valloric/YouCompleteMe' could be good but supertab does well enough
 "Bundle 'edkolev/tmuxline.vim'
-"Bundle 'bling/vim-bufferline'
 
 filetype plugin indent on
 
@@ -46,6 +51,7 @@ filetype plugin indent on
 "airline
 set t_Co=256
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 let g:molokai_original = 1
 let g:rehash256 = 1
@@ -78,11 +84,14 @@ set ai
 set si
 set undofile
 set lazyredraw
+set noshowmode
 set formatoptions=tcrqn
 set wrap linebreak nolist
 set showbreak=->
 set clipboard=unnamed
 set clipboard=unnamedplus
+set wildmode=longest,list,full
+set wildmenu
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 colorscheme molokai
@@ -98,16 +107,21 @@ nnoremap ns :set nospell<cr>
 nnoremap ss :set spell<cr>
 nnoremap > :bn<cr>
 nnoremap < :bp<cr>
+nnoremap \p :bp<cr>
+nnoremap \<space> :bn<cr>
 nnoremap e :e .<cr>
 nnoremap <C-n> :NERDTreeToggle<cr>
 nnoremap bd :bd<CR>
 nnoremap <C-c> :x<CR>
-nnoremap \ :w<cr>
+nnoremap \w :w<cr>
 nnoremap <C-]> :set colorcolumn=80<cr>
 nnoremap <C-[> :set colorcolumn=0<cr><cr>
 vnoremap <Space> zf
 nnoremap <CR> za
 nnoremap <C-i> mzgg=G`z
+nnoremap <C-b> :BuffergatorOpen<cr>
+nnoremap <C-j> :BuffergatorTabsOpen<cr>
+nnoremap \l :b#<cr>
 
 "Functions
 if has("autocmd")
