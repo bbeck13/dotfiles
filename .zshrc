@@ -174,6 +174,9 @@ export GLFW_DIR=~/.local/lib/glfw-3.1.2
 export CPLUS_INCLUDE_PATH=~/.local/lib/glfw-3.1.2/include:~/.local/lib/glew-1.13.0/include
 export GLEW_DIR=~/.local/lib/glew-1.13.0
 
+#set up zsh auto suggestions
+bindkey '^R' autosuggest-execute
+bindkey '^T' autosuggest-clear
 
 #fix home and end keys
 typeset -A key
