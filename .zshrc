@@ -168,28 +168,6 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 export EDITOR="vim"
 
-#fix home and end keys
-typeset -A key
-key[Home]=${terminfo[khome]}
-
-key[End]=${terminfo[kend]}
-key[Delete]=${terminfo[kdelete]}
-bindkey "\e[3~" delete-char
-
-[[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"     beginning-of-line
-[[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"      end-of-line
-[[ -n "${key[Delete]}"      ]]  && bindkey  "${key[Delete]}" delete
-if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-   function zle-line-init () {
-      printf '%s' "${terminfo[smkx]}"
-   }
-   function zle-line-finish () {
-      printf '%s' "${terminfo[rmkx]}"
-   }
-   zle -N zle-line-init
-   zle -N zle-line-finish
-fi
-
 # use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
 # zsh-autosuggestions is designed to be unobtrusive)
 bindkey '^T' autosuggest-toggle
@@ -211,3 +189,25 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
+
+#fix home and end keys
+typeset -A key
+key[Home]=${terminfo[khome]}
+
+key[End]=${terminfo[kend]}
+key[Delete]=${terminfo[kdelete]}
+bindkey "\e[3~" delete-char
+
+[[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"     beginning-of-line
+[[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"      end-of-line
+[[ -n "${key[Delete]}"      ]]  && bindkey  "${key[Delete]}" delete
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+   function zle-line-init () {
+      printf '%s' "${terminfo[smkx]}"
+   }
+   function zle-line-finish () {
+      printf '%s' "${terminfo[rmkx]}"
+   }
+   zle -N zle-line-init
+   zle -N zle-line-finish
+fi
