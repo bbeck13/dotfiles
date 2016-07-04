@@ -113,7 +113,7 @@ nnoremap e :e .<cr>
 nnoremap <C-n> :NERDTreeToggle<cr>
 nnoremap bd :bd<CR>
 nnoremap <C-c> :x<CR>
-nnoremap \w :w<cr>
+nnoremap <C-w> :w<cr>
 nnoremap <C-]> :set colorcolumn=80<cr>
 nnoremap <C-[> :set colorcolumn=0<cr><cr>
 vnoremap <Space> zf
