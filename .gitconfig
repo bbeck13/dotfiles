@@ -1,0 +1,10 @@
+[core]
+	excludesfile = ~/.gitignore
+[alias]
+	lag = log --graph --oneline --decorate --date=relative --all
+        dag = log --graph --abbrev-commit --decorate --date=relative --all
+
+[push]
+	default = simple
+[diff]
+	tool = vimdiff
