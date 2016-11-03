@@ -69,7 +69,7 @@ set history=50
 "general stuff
 "set relativenumber
 set viewoptions=cursor,folds,slash,unix
-set tw=80
+"set tw=80
 let g:skipview_files = ['*\.vim']
 set number
 syntax enable
@@ -86,7 +86,8 @@ set undofile
 set lazyredraw
 set noshowmode
 set formatoptions=tcrqn
-set wrap linebreak nolist
+set autochdir
+"set wrap linebreak nolist
 set showbreak=->
 set clipboard=unnamed
 set clipboard=unnamedplus
@@ -126,39 +127,38 @@ nnoremap \l :b#<cr>
 "Functions
 if has("autocmd")
    augroup redhat
-      autocmd!
-      autocmd BufRead *.txt set tw=78
-      autocmd BufReadPost *
-               \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-               \   exe "normal! g'\"" |
-               \ endif
-      autocmd BufNewFile,BufReadPre /media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
-   endif
+   autocmd!
+   autocmd BufReadPost *
+            \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+            \   exe "normal! g'\"" |
+            \ endif
+   autocmd BufNewFile,BufReadPre /media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
+endif
 
-   " IMPORTANT: Uncomment one of the following lines to force
-   " using 256 colors (or 88 colors) if your terminal supports it,
-   " but does not automatically use 256 colors by default.
-   set t_Co=256
-   "set t_Co=88
-   if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
-            \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
-      " Use the guicolorscheme plugin to makes 256-color or 88-color
-      " terminal use GUI colors rather than cterm colors.
-      runtime! plugin/guicolorscheme.vim
-      "GuiColorScheme molokai
-   else
-      " For 8-color 16-color terminals or for gvim, just use the
-      " regular :colorscheme command.
-      "colorscheme molokai
-   endif
-   if has("autocmd")
-      au BufReadPost *.rkt,*.rktl set filetype=racket
-      au filetype racket set lisp
-      au filetype racket set autoindent
-   endif
+" IMPORTANT: Uncomment one of the following lines to force
+" using 256 colors (or 88 colors) if your terminal supports it,
+" but does not automatically use 256 colors by default.
+set t_Co=256
+"set t_Co=88
+if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
+         \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
+   " Use the guicolorscheme plugin to makes 256-color or 88-color
+   " terminal use GUI colors rather than cterm colors.
+   runtime! plugin/guicolorscheme.vim
+   "GuiColorScheme molokai
+else
+   " For 8-color 16-color terminals or for gvim, just use the
+   " regular :colorscheme command.
+   "colorscheme molokai
+endif
+if has("autocmd")
+   au BufReadPost *.rkt,*.rktl set filetype=racket
+   au filetype racket set lisp
+   au filetype racket set autoindent
+endif
 
-   "if has("autocmd")
-   "   au BufReadPost *.rkt,*.rktl set filetype=racket
-   "   au filetype racket set lisp
-   "   au filetype racket set autoindent
-   "endif
+"if has("autocmd")
+"   au BufReadPost *.rkt,*.rktl set filetype=racket
+"   au filetype racket set lisp
+"   au filetype racket set autoindent
+"endif
