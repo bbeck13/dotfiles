@@ -57,6 +57,13 @@ let g:formatters_c = ['c_style']
 let g:formatdef_cpp_style='"clang-format -style=Chromium"'
 let g:formatters_cpp = ['cpp_style']
 
+
+"fuzzy finding text in buffer
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#custom#source('file,file/new,buffer,file_rec,line', 'matchers', 'matcher_fuzzy')
+nnoremap <leader>d :<C-u>Unite -buffer-name=search -start-insert line<cr>
+
 "markdown preview
 let vim_markdown_preview_browser='firefox'
 let vim_markdown_preview_hotkey='\m'
@@ -100,15 +107,6 @@ set wildmenu
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 let g:ctrlp_cmd = 'CtrlPTag'
-
-"colors
-colorscheme molokai
-let g:molokai_original = 1
-let g:rehash256 = 1
-set t_Co=256
-highlight LineNr ctermfg=grey ctermbg=black
-hi Visual term=reverse cterm=reverse guibg=Grey
-hi Search term=reverse cterm=reverse guibg=Grey
 
 "remapings
 nnoremap <space> :
@@ -174,6 +172,13 @@ if has("autocmd")
    "augroup END
 endif
 
+"colors
+let g:molokai_original = 1
+let g:rehash256 = 1
+set t_Co=256
+highlight LineNr ctermfg=grey ctermbg=black
+hi Visual term=reverse cterm=reverse guibg=Grey
+hi Search term=reverse cterm=reverse guibg=Grey
 " IMPORTANT: Uncomment one of the following lines to force
 " using 256 colors (or 88 colors) if your terminal supports it,
 " but does not automatically use 256 colors by default.
@@ -190,8 +195,3 @@ else
    " regular :colorscheme command.
    colorscheme molokai
 endif
-
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-call unite#custom#source('file,file/new,buffer,file_rec,line', 'matchers', 'matcher_fuzzy')
-nnoremap \d :<C-u>Unite -buffer-name=search -start-insert line<cr>
